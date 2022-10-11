@@ -160,7 +160,9 @@ def evaluate_model(model, X_test, Y_test, category_names):
     print('The accuracy of the model is {0:.2f}%'.format(accuracy*100))
 
     #print the classification report
-    print(classification_report(np.hstack(Y_test.values), np.hstack(y_prediction_test),target_names=category_names ))
+    for column in Y_test.columns:
+        print('Model Performance with Category: {}'.format(column))
+        print(classification_report(Y_test[column],Y_pred[column]))
 
 def save_model(model, model_filepath):
     """

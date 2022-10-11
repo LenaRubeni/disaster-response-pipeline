@@ -160,9 +160,10 @@ def evaluate_model(model, X_test, Y_test, category_names):
     print('The accuracy of the model is {0:.2f}%'.format(accuracy*100))
 
     #print the classification report
+    y_pred = pd.DataFrame(y_prediction_test, columns=Y_test.columns)
     for column in Y_test.columns:
         print('Model Performance with Category: {}'.format(column))
-        print(classification_report(Y_test[column],Y_pred[column]))
+        print(classification_report(Y_test[column], y_pred[column]))
 
 def save_model(model, model_filepath):
     """

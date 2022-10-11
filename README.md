@@ -41,3 +41,7 @@ To run the web app execute:
 ```
 python run.py
 ```
+
+# Acknowledgments
+
+Thanks to Udacity and Figure Eight for the opportunity. 

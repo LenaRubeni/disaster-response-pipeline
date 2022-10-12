@@ -51,16 +51,20 @@ def clean_data(df):
         categories[column] = categories[column].str[-1]
         categories[column] = categories[column].astype(int)
 
+
     print(categories.head())
+
 
     #drop the old category column from the dataset and insert the new colums
     df.drop('categories', axis=1, inplace=True)
     print(df.head())
     df = pd.concat([df,categories], join='inner', axis=1)
+    df['related'] = df['related'].map(lambda x: 1 if x == 2 else x)
     print(df.head())
     # drop all duplicates from the dataset
     df.drop_duplicates(inplace=True)
     print(df.head())
+    print(df['related'].value_counts())
     return df
 
 

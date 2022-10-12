@@ -56,9 +56,11 @@ def clean_data(df):
     #drop the old category column from the dataset and insert the new colums
     df.drop('categories', axis=1, inplace=True)
     print(df.head())
-    pd.concat([df,categories], join='inner', axis=1)
+    df = pd.concat([df,categories], join='inner', axis=1)
+    print(df.head())
     # drop all duplicates from the dataset
     df.drop_duplicates(inplace=True)
+    print(df.head())
     return df
 
 
